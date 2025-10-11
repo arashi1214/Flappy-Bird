@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://3rt3p8lc1ve5"]
+
+[ext_resource type="Script" uid="uid://dr76r5b36dwcu" path="res://Scripts/player.gd" id="1_3y5cq"]
+[ext_resource type="Texture2D" uid="uid://0ggv6mh61q51" path="res://Art/kenney_new-platformer-pack-1.0/Sprites/Characters/Double/character_green_jump.png" id="1_y0qk3"]
+[ext_resource type="AudioStream" uid="uid://t61jnggagbfi" path="res://Audio/maou_se_8bit12.ogg" id="3_2i4gt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0qk3"]
+radius = 74.0
+height = 188.0
+
+[node name="Player" type="RigidBody2D" groups=["playing_object"]]
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_3y5cq")
+speed = 400
+
+[node name="CharacterGreenJump" type="Sprite2D" parent="."]
+position = Vector2(65, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_y0qk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(65, 80)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_y0qk3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2i4gt")
+volume_db = -14.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

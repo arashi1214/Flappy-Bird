@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://3rt3p8lc1ve5"]
+
+[ext_resource type="Script" uid="uid://dr76r5b36dwcu" path="res://Scripts/player.gd" id="1_3y5cq"]
+[ext_resource type="Texture2D" uid="uid://0ggv6mh61q51" path="res://Art/kenney_new-platformer-pack-1.0/Sprites/Characters/Double/character_green_jump.png" id="1_y0qk3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0qk3"]
+radius = 40.0
+height = 100.0
+
+[node name="Player" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(65, 65)
+scale = Vector2(0.5, 0.5)
+disable_mode = 2
+freeze_mode = 1
+script = ExtResource("1_3y5cq")
+speed = 500
+
+[node name="CharacterGreenJump" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_y0qk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-2, 18)
+shape = SubResource("CapsuleShape2D_y0qk3")

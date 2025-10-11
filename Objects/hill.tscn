@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7u50htrkcj01"]
+
+[ext_resource type="Script" uid="uid://du1o38h4qu77p" path="res://Scripts/hill.gd" id="1_60qs0"]
+[ext_resource type="Texture2D" uid="uid://dfrf2ib08jwi6" path="res://Art/kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/hill.png" id="1_sn60l"]
+[ext_resource type="Texture2D" uid="uid://djdq8a6orrgc4" path="res://Art/kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/hill_top.png" id="2_cg2ad"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbfuo"]
+radius = 29.0
+height = 214.0
+
+[node name="hill" type="CharacterBody2D" groups=["playing_object", "障礙物"]]
+script = ExtResource("1_60qs0")
+speed = 3.0
+
+[node name="Hill2" type="Sprite2D" parent="."]
+position = Vector2(34, 162)
+texture = ExtResource("1_sn60l")
+
+[node name="Hill" type="Sprite2D" parent="."]
+position = Vector2(34, 98)
+texture = ExtResource("1_sn60l")
+
+[node name="HillTop" type="Sprite2D" parent="."]
+position = Vector2(34, 35)
+texture = ExtResource("2_cg2ad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34, 113)
+shape = SubResource("CapsuleShape2D_rbfuo")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjvvfm3amwp6g"]
+
+[ext_resource type="Script" uid="uid://p3g3y13i2tla" path="res://Scripts/hill_controller.gd" id="1_nbyj7"]
+
+[node name="Hill controller" type="Node2D"]
+script = ExtResource("1_nbyj7")
+create_area_Y = 50.0
+
+[node name="Marker2D_bottom" type="Marker2D" parent="."]
+
+[node name="Marker2D_top" type="Marker2D" parent="."]
+position = Vector2(70, -200)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="create_hill"]
